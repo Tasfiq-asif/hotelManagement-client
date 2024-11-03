@@ -20,7 +20,7 @@ const Banner = () => {
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-lg flex items-center justify-center">
-          <h1 className="text-7xl font-bold text-black">DREAM STAY</h1>
+          <h1 className="text-7xl font-bold text-almostBlack opacity-75 shadow-2xl mt-10">DREAM STAY</h1>
         </div>
     </div>
   )

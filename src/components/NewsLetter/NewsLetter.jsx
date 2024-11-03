@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from '../Button';
 
 const NewsLetter = () => {
 
@@ -25,12 +26,9 @@ const NewsLetter = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required 
                 />
-                <button 
-                    type="submit" 
-                    className="btn bg-primary text-background hover:bg-secondary px-8 rounded-2xl transition duration-200"
-                >
+                <Button type="submit">
                     Subscribe Now
-                </button>
+                </Button>
             </form>
             {isSubmitted && (
                 <p className="mt-4 text-green-500 font-semibold">Thank you for subscribing! Check your inbox for exclusive offers.</p>
