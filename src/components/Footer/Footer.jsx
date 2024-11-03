@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="footer mt-20 p-10 bg-[#2a68ff] text-neutral-content justify-around">
+    <footer className="footer mt-20 p-10 bg-secondary text-neutral-content justify-around">
       <aside>
         <p className="heading text-3xl text-white">
           Stay<span className="font-bold px-0 m-0">Scape</span>

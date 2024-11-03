@@ -8,7 +8,7 @@ const Button = ({children,onClick,variant='primary'}) => {
         outline:"border border-primary text-primary hover:bg-background"
     }
   return (
-    <button className={`${baseStyles} ${variants[variant]}`} onClick={onClick}>
+    <button className={`${baseStyle} ${variants[variant]}`} onClick={onClick}>
     {children}
   </button>
   )
