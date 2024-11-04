@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../../components/Button'
+import { FcGoogle } from 'react-icons/fc'
 
 const Login = () => {
   return (
@@ -38,6 +39,16 @@ const Login = () => {
         </div>
         <div className="form-control mt-6">
           <Button>Login</Button>
+          <button
+                // disabled={loading}
+                // onClick={handleGoogleSignIn}
+                className="disabled:cursor-not-allowed mx-auto bg-transparent hover:bg-gray-200 flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer rounded-2xl w-full"
+              >
+                <FcGoogle size={32} />
+
+                <p>Continue with Google</p>
+              </button>
+
         </div>
       </form>
     </div>

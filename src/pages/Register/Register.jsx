@@ -1,7 +1,20 @@
 import React from 'react'
 import Button from '../../components/Button'
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form= e.target;
+        const name = form.name.value
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(name, email, password)
+        
+    }
+
   return (
     <div className="hero bg-background min-h-screen">
     <div className="hero-content flex-col lg:flex-row-reverse">
@@ -13,18 +26,24 @@ const Register = () => {
         </p>
       </div>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <form className="card-body">
+        <form className="card-body" onSubmit={handleSubmit}>
+        <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input type="text" placeholder="Name" name='name' className="input input-bordered" required />
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
-            <input type="email" placeholder="email" className="input input-bordered" required />
+            <input type="email" placeholder="email" name='email' className="input input-bordered" required />
           </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input type="password" placeholder="password" className="input input-bordered" required />
+            <input type="password" placeholder="password" name='password' className="input input-bordered" required />
             <label className="flex w-full">
             <p>Already have an account?</p>
             <a
@@ -37,7 +56,17 @@ const Register = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <Button>Sign up</Button>
+            <Button type='submit'>Sign up</Button>
+            <button
+                // disabled={loading}
+                // onClick={handleGoogleSignIn}
+                className="disabled:cursor-not-allowed mx-auto bg-transparent hover:bg-gray-200 flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer rounded-2xl w-full"
+              >
+                <FcGoogle size={32} />
+
+                <p>Continue with Google</p>
+              </button>
+
           </div>
         </form>
       </div>
