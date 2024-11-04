@@ -1,8 +1,15 @@
 import React from 'react'
 import Button from '../../components/Button'
 import { FcGoogle } from "react-icons/fc";
+import useAuth from '../../hooks/useAuth';
+import { Navigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+
+  const { googleLogin, signIn,  setLoading,user,loading } =
+    useAuth();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,6 +21,20 @@ const Register = () => {
         console.log(name, email, password)
         
     }
+
+     // handle google signin
+  const handleGoogleSignIn = async () => {
+    try {
+      // setLoading(true);
+      await googleLogin();
+
+      Navigate(from);
+      toast.success("Signup Successful");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    } 
+  };
 
   return (
     <div className="hero bg-background min-h-screen">
@@ -59,7 +80,8 @@ const Register = () => {
             <Button type='submit'>Sign up</Button>
             <button
                 // disabled={loading}
-                // onClick={handleGoogleSignIn}
+                onClick={handleGoogleSignIn}
+                type=''
                 className="disabled:cursor-not-allowed mx-auto bg-transparent hover:bg-gray-200 flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer rounded-2xl w-full"
               >
                 <FcGoogle size={32} />
