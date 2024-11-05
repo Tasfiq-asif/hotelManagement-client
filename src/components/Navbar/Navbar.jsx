@@ -1,8 +1,16 @@
-import React from 'react'
+
 import Button from '../Button'
 import { Link } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
 
 const Navbar = () => {
+  const { user, logOut } = useAuth()
+
+  const handleSignOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar bg-background">
   <div className="navbar-start">
@@ -34,9 +42,11 @@ const Navbar = () => {
   <div className="navbar-center">
     <Link to={'/'} className="btn text-xl bg-transparent ">StayScape</Link>
   </div>
-  <Link to={'/login'} className="navbar-end">
-    <button className='btn bg-primary text-background hover:bg-secondary px-8 rounded-2xl'>Login</button>
-  </Link>
+  <div to={'/login'} className="navbar-end">
+  {user? <Button onClick={()=>handleSignOut()}>LogOut</Button> :<Link to={'/login'}><Button>Login</Button></Link>}
+   
+  </div>
+
 </div>
   )
 }

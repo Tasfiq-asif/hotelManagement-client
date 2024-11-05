@@ -1,8 +1,46 @@
 import React from 'react'
 import Button from '../../components/Button'
 import { FcGoogle } from 'react-icons/fc'
+import useAuth from '../../hooks/useAuth';
+import toast from 'react-hot-toast';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
+
+  
+  const { googleLogin, signIn,  setLoading,user,loading,createUser } = useAuth();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form= e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+    .then(result =>{
+      const user =result.user;
+      console.log(user)
+    })
+    .then(error => console.log(error))
+    
+}
+
+    // handle google signin
+    const handleGoogleSignIn = async () => {
+      try {
+        // setLoading(true);
+        await googleLogin();
+  
+        Navigate(from);
+        toast.success("Signup Successful");
+      } catch (err) {
+        console.log(err);
+        toast.error(err.message);
+      } 
+    };
+
+
+
   return (
     <div className="hero bg-background min-h-screen">
   <div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,18 +52,18 @@ const Login = () => {
       </p>
     </div>
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <form className="card-body">
+      <form className="card-body" onSubmit={handleSubmit}>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
+          <input type="email" name='email' placeholder="email" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
+          <input type="password" name='password' placeholder="password" className="input input-bordered" required />
           <label className="flex w-full">
           <p>Do not have an account?</p>
           <a
@@ -38,10 +76,10 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <Button>Login</Button>
+          <Button type='submit'>Login</Button>
           <button
-                // disabled={loading}
-                // onClick={handleGoogleSignIn}
+                disabled={loading}
+                onClick={handleGoogleSignIn}
                 className="disabled:cursor-not-allowed mx-auto bg-transparent hover:bg-gray-200 flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer rounded-2xl w-full"
               >
                 <FcGoogle size={32} />
