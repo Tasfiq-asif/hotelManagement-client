@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../Button'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -31,11 +32,11 @@ const Navbar = () => {
     </div>
   </div>
   <div className="navbar-center">
-    <a className="btn text-xl bg-transparent ">StayScape</a>
+    <Link to={'/'} className="btn text-xl bg-transparent ">StayScape</Link>
   </div>
-  <div className="navbar-end">
+  <Link to={'/login'} className="navbar-end">
     <button className='btn bg-primary text-background hover:bg-secondary px-8 rounded-2xl'>Login</button>
-  </div>
+  </Link>
 </div>
   )
 }
