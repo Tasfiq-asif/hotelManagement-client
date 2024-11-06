@@ -3,6 +3,8 @@ import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
+import MyBookings from "../pages/MyBookings/MyBookings";
 
 
 const router = createBrowserRouter([
@@ -22,6 +24,12 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register/>
             },
+            {
+                path:"/mybookings",
+                element:<PrivateRoute>
+                    <MyBookings/>
+                </PrivateRoute>
+            }
         ],
     }
 ])
