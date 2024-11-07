@@ -1,0 +1,82 @@
+[
+    {
+        "roomDescription": "Cozy room with a king-size bed and ocean view",
+        "pricePerNight": 120,
+        "roomSize": "350 sqft",
+        "availability": true,
+        "roomImages": [
+            "https://i.ibb.co/CssWcKT/1.jpg"
+        ],
+        "specialOffers": "10% discount for stays over 3 nights"
+    },
+    {
+        "roomDescription": "Spacious suite with living area and balcony",
+        "pricePerNight": 180,
+        "roomSize": "500 sqft",
+        "availability": true,
+        "roomImages": [
+            "https://i.ibb.co/V9JXMWd/2.jpg"
+        ],
+        "specialOffers": "Complimentary breakfast included"
+    },
+    {
+        "roomDescription": "Standard room with queen-size bed and city view",
+        "pricePerNight": 100,
+        "roomSize": "300 sqft",
+        "availability": true,
+        "roomImages": [
+            "https://i.ibb.co/BtwnrXh/3.jpg"
+        ],
+        "specialOffers": "5% discount for weekend stays"
+    },
+    {
+        "roomDescription": "Luxury suite with private hot tub and sea view",
+        "pricePerNight": 250,
+        "roomSize": "600 sqft",
+        "availability": false,
+        "roomImages": [
+            "https://i.ibb.co/wdZpzx0/4.jpg"
+        ],
+        "specialOffers": "Free airport shuttle service"
+    },
+    {
+        "roomDescription": "Single room with garden view",
+        "pricePerNight": 75,
+        "roomSize": "200 sqft",
+        "availability": true,
+        "roomImages": [
+            "https://i.ibb.co/Z6Z1H15/5.jpg"
+        ],
+        "specialOffers": null
+    },
+    {
+        "roomDescription": "Double room with balcony and pool access",
+        "pricePerNight": 150,
+        "roomSize": "400 sqft",
+        "availability": true,
+        "roomImages": [
+            "https://i.ibb.co/bKCB8XK/6.jpg"
+        ],
+        "specialOffers": "15% discount for members"
+    },
+    {
+        "roomDescription": "Family suite with two bedrooms and kitchenette",
+        "pricePerNight": 200,
+        "roomSize": "700 sqft",
+        "availability": false,
+        "roomImages": [
+            "https://i.ibb.co/z5fv6Nz/7.jpg"
+        ],
+        "specialOffers": "Kids stay free"
+    },
+    {
+        "roomDescription": "Penthouse suite with panoramic city view and private terrace",
+        "pricePerNight": 400,
+        "roomSize": "1000 sqft",
+        "availability": true,
+        "roomImages": [
+            "https://i.ibb.co/GCCFXZ7/8.jpg"
+        ],
+        "specialOffers": "Complimentary dinner included for 2-night stay"
+    }
+]
