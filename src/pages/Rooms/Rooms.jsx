@@ -74,7 +74,7 @@ const Rooms = () => {
           <option value="desc">Highest Price</option>
         </select>
         
-        <button type="submit" className="btn btn-primary">Filter</button>
+        <Button type="submit" >Filter</Button>
       </form>
 
       {/* Rooms Grid */}
@@ -97,7 +97,7 @@ const Rooms = () => {
               <p className="text-purple-500 text-sm mt-1">{room.specialOffers}</p>
               <div className="card-actions justify-end">
               {user && user.email ? (
-  <Link to={`/jobs/${job._id}`}>
+  <Link to={`/rooms/${room._id}`}>
     <Button className="btn-xs ">
       details
     </Button>
