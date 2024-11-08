@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import Spinner from "../../components/Spinner/Spinner";
 import axios from "axios";
+import useAuth from "../../hooks/useAuth";
+import Button from "../../components/Button";
+import { Link } from "react-router-dom";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -9,6 +12,7 @@ const Rooms = () => {
   const [maxPrice, setMaxPrice] = useState('');
   const [sortOrder, setSortOrder] = useState(''); // State for sorting order
 
+  const {user} = useAuth()
   // Fetch rooms data with optional price filtering and sorting
   const fetchRooms = async () => {
     setLoading(true);
@@ -92,7 +96,20 @@ const Rooms = () => {
               </p>
               <p className="text-purple-500 text-sm mt-1">{room.specialOffers}</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">View Details</button>
+              {user && user.email ? (
+  <Link to={`/jobs/${job._id}`}>
+    <Button className="btn-xs ">
+      details
+    </Button>
+  </Link>
+) : (
+  <Link to="/login">
+    <Button className="btn-xs ">
+      Login to view details
+    </Button>
+  </Link>
+)}
+
               </div>
             </div>
           </div>

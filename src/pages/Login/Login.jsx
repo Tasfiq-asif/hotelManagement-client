@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '../../components/Button'
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
   
   const { googleLogin, signIn,  setLoading,user,loading,createUser } = useAuth();
+  const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+      if(user){
+        navigate('/')
+      }
+    },[user,navigate])
+    const from = location.state || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
