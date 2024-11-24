@@ -28,7 +28,7 @@ const FeaturedRooms = () => {
    
   return (
     <div className="bg-transparent p-8 rounded-lg shadow-lg">
-            <h2 className="text-3xl font-bold text-center mb-6 text-almostBlack">Featured Rooms</h2>
+            <h2 className="text-3xl font-bold text-center mb-6">Featured Rooms</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {rooms.map(room => (
                     <div key={room.id} className="bg-white/30 backdrop-blur-md border border-gray-200 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105">

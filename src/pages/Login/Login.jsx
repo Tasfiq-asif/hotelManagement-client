@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Button from '../../components/Button'
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from '../../hooks/useAuth';
@@ -51,9 +51,9 @@ const Login = () => {
 
 
   return (
-    <div className="hero bg-background min-h-screen">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
+  <div className="hero  min-h-screen">
+    <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
       <p className="py-6">
         Please Log IN

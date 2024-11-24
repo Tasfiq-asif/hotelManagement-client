@@ -82,7 +82,7 @@ const Rooms = () => {
         {rooms.map((room, index) => (
           <div 
             key={index} 
-            className="card bg-base-100 shadow-xl transform transition duration-300 hover:scale-105"
+            className="card bg-background shadow-xl transform transition duration-300 hover:scale-105 text-black"
           >
             <figure>
               <img src={room.roomImages[0]} alt="Room" className="h-48 w-full object-cover" />

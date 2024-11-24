@@ -15,7 +15,7 @@ const NewsLetter = () => {
     };
   return (
     <div className="bg-transparent p-8 rounded-lg shadow-lg text-center mt-10">
-            <h2 className="text-3xl font-bold mb-4 text-gray-800">Join Our Family!</h2>
+            <h2 className="text-3xl font-bold mb-4">Join Our Family!</h2>
             <p className="text-lg mb-6 text-gray-600">Sign up for our newsletter and unlock exclusive deals, updates, and a warm welcome gift!</p>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center">
                 <input 
