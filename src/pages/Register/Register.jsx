@@ -24,7 +24,6 @@ const Register = () => {
           console.log(user)
         })
         .then(error => console.log(error))
-        
     }
 
      // handle google signin
@@ -38,7 +37,7 @@ const Register = () => {
     } catch (err) {
       console.log(err);
       toast.error(err.message);
-    } 
+    }
   };
 
   return (

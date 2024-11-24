@@ -5,9 +5,7 @@
 @tailwind utilities;
 
 
-[data-theme="light"] .text-primary {
-  color: #6200EE;
-}
+
 
 /* body {
     @apply bg-background;

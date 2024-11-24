@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { useState, useEffect } from "react";
+
 import Button from "../Button";
+import { useTheme } from "../../providers/ThemeProvider";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light"); // Load theme from localStorage or default to 'light'
+ const { theme, toggleTheme } = useTheme();
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme); // Apply the theme
-  }, [theme]);
+
 
   const handleSignOut = () => {
     logOut()
@@ -17,11 +16,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
 
-  const toggleTheme = (e) => {
-    const newTheme = e.target.checked ? "dark" : "light"; // Toggle between 'dark' and 'light'
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); // Save theme to localStorage
-  };
+
 
   return (
     <div className="navbar bg-transparent">

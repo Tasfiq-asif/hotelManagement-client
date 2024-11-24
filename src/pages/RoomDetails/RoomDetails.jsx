@@ -1,14 +1,12 @@
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Spinner from '../../components/Spinner/Spinner';
+import Spinner from "../../components/Spinner/Spinner";
+import Button from "../../components/Button";
 
 const RoomDetails = () => {
-  // const jobs = useLoaderData();
-  // const {user}= useAuth();
   const { id } = useParams();
   const [room, setRoom] = useState(null);
   const [reviews, setReviews] = useState([]);
@@ -68,7 +66,7 @@ const RoomDetails = () => {
       console.error("Error booking room:", error);
     }
   };
-  // Close modals on ESC key press
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -79,66 +77,70 @@ const RoomDetails = () => {
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // Cleanup listener on component unmount
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
-  if (!room)
-    return (
-      <div>
-        <Spinner></Spinner>
-      </div>
-    );
+  if (!room) return <Spinner />;
+
   return (
-    <div className="p-8">
-      <h2 className="text-3xl font-bold">{room.roomDescription}</h2>
-      <img
-        src={room.roomImages[0]}
-        alt="Room"
-        className="w-full h-80 object-cover my-4"
-      />
-      <p>{room.specialOffers}</p>
-      <p>Price per night: ${room.pricePerNight}</p>
-      <p>Room Size: {room.roomSize}</p>
+    <div className="p-8 max-w-5xl mx-auto ">
+      <h2 className="text-4xl font-bold ">{room.roomDescription}</h2>
+
+      <div className="relative my-4">
+        <img
+          src={room.roomImages[0]}
+          alt="Room"
+          className="w-full h-80 object-cover rounded-lg shadow-md"
+        />
+        <Button
+          onClick={() => setShowBookingForm(true)}
+          className="absolute top-4 right-4 px-6 py-2 rounded-md shadow-lg  transition"
+        >
+          Book Now
+        </Button>
+      </div>
+
+      <p className="text-lg font-medium  mt-2">{room.specialOffers}</p>
+      <p className="text-xl  mt-4">
+        Price per night:{" "}
+        <span className="font-semibold">${room.pricePerNight}</span>
+      </p>
+      <p className="text-lg mt-2">Room Size: {room.roomSize}</p>
+
       <p
         className={`text-${
           room.availability ? "green" : "red"
-        }-500 font-medium`}
+        }-500 font-semibold mt-4`}
       >
         {room.availability ? "Available" : "Not Available"}
       </p>
 
-      <h3 className="text-2xl font-semibold mt-8">Reviews</h3>
-      <div className="mt-4">
-        {reviews.map((review, index) => (
-          <div key={index} className="border-b py-2">
-            <p className="font-semibold">{review.name}</p>
-            <p>Rating: {review.rating} / 5</p>
-            <p>{review.comment}</p>
-          </div>
-        ))}
-        <button
-          onClick={() => setShowReviewPopup(true)}
-          className="btn btn-secondary mt-4"
-        >
-          Add Review
-        </button>
+      <div className="mt-10">
+        <h3 className="text-2xl font-semibold ">Reviews</h3>
+        <div className="space-y-6 mt-6">
+          {reviews.map((review, index) => (
+            <div key={index} className="border-t pt-4">
+              <p className="font-semibold ">{review.name}</p>
+              <p className="text-sm ">Rating: {review.rating} / 5</p>
+              <p className=" mt-2">{review.comment}</p>
+            </div>
+          ))}
+          <Button
+            onClick={() => setShowReviewPopup(true)}
+            className=" mt-6"
+          >
+            Add Review
+          </Button>
+        </div>
       </div>
-
-      <button
-        onClick={() => setShowBookingForm(true)}
-        className="btn btn-primary mt-8"
-      >
-        Book Now
-      </button>
 
       {/* Review Popup */}
       {showReviewPopup && (
         <div className="modal modal-open">
-          <div className="modal-box">
-            <h2 className="text-xl font-bold mb-4">Submit Review</h2>
+          <div className="modal-box ">
+            <h2 className="text-2xl font-bold mb-4">Submit Review</h2>
             <input
               type="text"
               placeholder="Your Name"
@@ -169,12 +171,9 @@ const RoomDetails = () => {
                 setReviewForm({ ...reviewForm, comment: e.target.value })
               }
             />
-            <button
-              onClick={handleReviewSubmit}
-              className="btn btn-primary w-full"
-            >
+            <Button onClick={handleReviewSubmit} className=" w-full">
               Submit
-            </button>
+            </Button>
           </div>
         </div>
       )}
@@ -182,9 +181,9 @@ const RoomDetails = () => {
       {/* Booking Popup */}
       {showBookingForm && (
         <div className="modal modal-open">
-          <div className="modal-box">
-            <h2 className="text-xl font-bold mb-4">Book Room</h2>
-            <form onSubmit={handleBookingSubmit}>
+          <div className="modal-box w-90 max-w-2xl p-12 h-[550px]">
+            <h2 className="text-2xl font-bold mb-4">Book Room</h2>
+            <form className="flex flex-col" onSubmit={handleBookingSubmit}>
               <label>Check-In Date</label>
               <DatePicker
                 selected={bookingForm.checkInDate}
@@ -219,9 +218,9 @@ const RoomDetails = () => {
                   setBookingForm({ ...bookingForm, email: e.target.value })
                 }
               />
-              <button type="submit" className="btn btn-primary w-full">
+              <Button type="submit" className=" w-full">
                 Book Room
-              </button>
+              </Button>
             </form>
           </div>
         </div>
@@ -246,6 +245,6 @@ const RoomDetails = () => {
       )}
     </div>
   );
-}
+};
 
-export default RoomDetails
+export default RoomDetails;

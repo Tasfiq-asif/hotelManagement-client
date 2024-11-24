@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import daisyuiThemes from 'daisyui/src/theming/themes';
 import daisyui from 'daisyui';
 
 export default {
@@ -9,44 +8,37 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: '#EEEBDD',
-        secondary: '#810000',
-        primary: '#630000',
-        almostBlack: '#1B1717',
-      },
       fontFamily: {
         sans: ['Lato', 'sans-serif'],
       },
     },
   },
-  plugins: [
-    daisyui,
-  ],
+  plugins: [daisyui],
   daisyui: {
     themes: [
       {
         light: {
-          ...daisyuiThemes.light, // Spread the light theme
-          primary: '#630000',
-          secondary: '#810000',
-          accent: '#EEEBDD',
-          neutral: '#1B1717',
-          'base-100': '#FFFFFF', // Light background
-          'base-content': '#1B1717', // Dark text for light mode
+          "primary": "#630000",
+          "secondary": "#810000",
+          "accent": "#EEEBDD",
+          "neutral": "#1B1717",
+          "base-100": "#FFFFFF",
+          "base-200": "#F2F2F2",
+          "base-300": "#E5E5E5",
+          "base-content": "#1B1717",
         },
-      },
-      {
         dark: {
-          ...daisyuiThemes.dark, // Spread the dark theme
-          primary: '#630000',
-          secondary: '#810000',
-          accent: '#EEEBDD',
-          neutral: '#1B1717',
-          'base-100': '#1B1717', // Dark background
-          'base-content': '#FFFFFF', // White text for dark mode
+          "primary": "#630000",
+          "secondary": "#810000",
+          "accent": "#EEEBDD",
+          "neutral": "#1B1717",
+          "base-100": "#1B1717",
+          "base-200": "#2B2B2B",
+          "base-300": "#3B3B3B",
+          "base-content": "#FFFFFF",
         },
       },
     ],
   },
 };
+
