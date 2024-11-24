@@ -47,7 +47,10 @@ const Rooms = () => {
       <h2 className="text-3xl font-bold text-center mb-8">Available Rooms</h2>
 
       {/* Filter and Sort Form */}
-      <form onSubmit={handleFilterSubmit} className="flex flex-col items-center gap-4 mb-8 md:flex-row md:justify-center">
+      <form
+        onSubmit={handleFilterSubmit}
+        className="flex flex-col items-center gap-4 mb-8 md:flex-row md:justify-center"
+      >
         <input
           type="number"
           placeholder="Min Price"
@@ -62,7 +65,7 @@ const Rooms = () => {
           onChange={(e) => setMaxPrice(e.target.value)}
           className="input input-bordered w-32"
         />
-        
+
         {/* Sorting Dropdown */}
         <select
           value={sortOrder}
@@ -73,43 +76,48 @@ const Rooms = () => {
           <option value="asc">Lowest Price</option>
           <option value="desc">Highest Price</option>
         </select>
-        
-        <Button type="submit" >Filter</Button>
+
+        <Button type="submit">Filter</Button>
       </form>
 
       {/* Rooms Grid */}
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {rooms.map((room, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="card bg-background shadow-xl transform transition duration-300 hover:scale-105 text-black"
           >
             <figure>
-              <img src={room.roomImages[0]} alt="Room" className="h-48 w-full object-cover" />
+              <img
+                src={room.roomImages[0]}
+                alt="Room"
+                className="h-48 w-full object-cover"
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{room.roomDescription}</h2>
               <p>Size: {room.roomSize}</p>
               <p>Price: ${room.pricePerNight} per night</p>
-              <p className={`text-${room.availability ? 'green' : 'red'}-500 font-medium`}>
+              <p
+                className={`font-medium ${
+                  room.availability ? "text-green-500" : "text-red-500"
+                }`}
+              >
                 {room.availability ? "Available" : "Not Available"}
               </p>
-              <p className="text-purple-500 text-sm mt-1">{room.specialOffers}</p>
+              <p className="text-purple-500 text-sm mt-1">
+                {room.specialOffers}
+              </p>
               <div className="card-actions justify-end">
-              {user && user.email ? (
-  <Link to={`/rooms/${room._id}`}>
-    <Button className="btn-xs ">
-      details
-    </Button>
-  </Link>
-) : (
-  <Link to="/login">
-    <Button className="btn-xs ">
-      Login to view details
-    </Button>
-  </Link>
-)}
-
+                {user && user.email ? (
+                  <Link to={`/rooms/${room._id}`}>
+                    <Button className="btn-xs ">details</Button>
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <Button className="btn-xs ">Login to view details</Button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
