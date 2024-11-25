@@ -22,7 +22,7 @@ const Navbar = () => {
     <div className="navbar bg-transparent">
       <div className="navbar-start">
         <div className="dropdown ">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -40,16 +40,25 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-background rounded-box z-[1] mt-3 w-52 p-2 shadow text-black bg-white"
+            className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow bg-white text-black "
           >
             <li>
-              <Link to={"/rooms"}>Rooms</Link>
+              <Link to={"/"} className="text-black dark:text-black">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to={"/rooms"} className="text-black dark:text-black">
+                Rooms
+              </Link>
             </li>
             <li>
               <Link to={"/mybookings"}>My Bookings</Link>
             </li>
             <li>
-              <a>About Us</a>
+              <Link to={"/about"} className="text-black">
+                About Us
+              </Link>
             </li>
             <li>
               <Link to={"/contact"}>Contact Us</Link>

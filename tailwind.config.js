@@ -26,6 +26,7 @@ export default {
           "base-200": "#F2F2F2",
           "base-300": "#E5E5E5",
           "base-content": "#1B1717",
+          "menu-content": "#1B1717",
         },
         dark: {
           "primary": "#630000",
@@ -36,6 +37,7 @@ export default {
           "base-200": "#2B2B2B",
           "base-300": "#3B3B3B",
           "base-content": "#FFFFFF",
+          "menu-content": "#1B1717",
         },
       },
     ],

@@ -45,7 +45,7 @@ const {user} =useAuth()
         {rooms.map((room) => (
           <div
             key={room.id}
-            className="bg-white/30 backdrop-blur-md border border-gray-200 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105 flex flex-col"
+            className=" backdrop-blur-md border border-gray-200 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105 flex flex-col"
           >
             <img
               src={room.roomImages[0]} // Display the first image
@@ -54,7 +54,7 @@ const {user} =useAuth()
             />
             <div className="p-4 flex flex-col flex-grow justify-between">
               <h3 className="text-xl font-semibold mb-2">{room.roomType}</h3>
-              <p className="text-gray-600 mb-4 flex-grow">
+              <p className=" mb-4 flex-grow">
                 {room.roomDescription}
               </p>
               <div className="mt-auto ">
