@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-transparent">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-background rounded-box z-[1] mt-3 w-52 p-2 shadow text-black"
+            className="menu menu-sm dropdown-content bg-background rounded-box z-[1] mt-3 w-52 p-2 shadow text-black bg-white"
           >
             <li>
               <Link to={"/rooms"}>Rooms</Link>
@@ -52,13 +52,13 @@ const Navbar = () => {
               <a>About Us</a>
             </li>
             <li>
-              <a>Contact Us</a>
+              <Link to={"/contact"}>Contact Us</Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <Link to={"/"} className="btn text-xl bg-transparent">
+        <Link to={"/"} className="btn text-xl ">
           StayScape
         </Link>
       </div>
