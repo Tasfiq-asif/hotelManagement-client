@@ -17,7 +17,7 @@ const Rooms = () => {
   const fetchRooms = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:3000/rooms', {
+      const response = await axios.get('https://stayscape-two.vercel.app/rooms', {
         params: { minPrice, maxPrice, sortOrder }  // Pass query parameters for price range and sort order
       });
       setRooms(response.data);

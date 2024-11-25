@@ -29,10 +29,10 @@ const RoomDetails = () => {
     const fetchRoomDetails = async () => {
       try {
         const roomResponse = await axios.get(
-          `http://localhost:3000/rooms/${id}`
+          `https://stayscape-two.vercel.app/rooms/${id}`
         );
         const reviewsResponse = await axios.get(
-          `http://localhost:3000/rooms/${id}/reviews`
+          `https://stayscape-two.vercel.app/rooms/${id}/reviews`
         );
         setRoom(roomResponse.data);
         setReviews(reviewsResponse.data);
@@ -45,7 +45,7 @@ const RoomDetails = () => {
 
   const handleReviewSubmit = async () => {
     try {
-      await axios.post(`http://localhost:3000/rooms/${id}/reviews`, reviewForm);
+      await axios.post(`https://stayscape-two.vercel.app/rooms/${id}/reviews`, reviewForm);
       setReviews([...reviews, reviewForm]);
       setShowReviewPopup(false);
     } catch (error) {
@@ -57,7 +57,7 @@ const RoomDetails = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:3000/rooms/${id}/book`,
+        `https://stayscape-two.vercel.app/rooms/${id}/book`,
         bookingForm
       );
       setBookingDetails(response.data);

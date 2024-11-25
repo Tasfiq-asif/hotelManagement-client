@@ -20,7 +20,7 @@ const MyBookings = () => {
     const fetchBookings = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/my-bookings?email=${user.email}`
+          `https://stayscape-two.vercel.app/my-bookings?email=${user.email}`
         );
         const data = await response.json();
 

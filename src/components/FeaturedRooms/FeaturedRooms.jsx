@@ -13,7 +13,7 @@ const {user} =useAuth()
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch("http://localhost:3000/rooms");
+        const response = await fetch("https://stayscape-two.vercel.app/rooms");
         const data = await response.json();
 
 
